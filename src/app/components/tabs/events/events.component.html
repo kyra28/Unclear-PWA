@@ -1,0 +1,7 @@
+<div *ngFor="let event of this.events">
+    <div>
+        <app-event *ngIf="event.type==='Other'" [event]="event"></app-event>
+        <app-match *ngIf="event.type==='Match'" [event]="event"></app-match>
+    </div>
+    <hr/>
+</div>

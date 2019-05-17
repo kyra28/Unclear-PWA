@@ -1,0 +1,11 @@
+
+<h2>{{this.team.name}} - {{this.team.game}}</h2>
+<img class="img-responsive" src={{this.team.logo}} alt="STAFF">
+<p class="lead">  </p>
+<div class="players">
+  <ul class="list-inline">
+    <li>Lineup:</li>
+    <li *ngFor="let player of this.team.players">{{player.pseudo}}</li>
+  </ul>
+</div>
+

@@ -1,0 +1,26 @@
+<!-- Render JavaScript alerts here -->
+<div class="alert-area"></div>
+
+<section class="page page-news page-news-show-stream">
+  <div class="items">
+    <div *ngFor="let news of this.newsList">
+        <div class="item news">
+            <a class="image text-hide" [routerLink]="['/news',this.news.id]" style="background-image: url({{this.news.image}}">
+            </a>
+            
+            <h2 title="{{this.news.title}}">
+                <a [routerLink]="['/news',this.news.id]">{{this.news.title}}</a>
+            </h2>
+          
+            <div class="meta below">
+                <time>{{this.news.publishedAt | date : "MMMM d, y"}}</time> - {{this.news.admin.pseudo}}
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="loading hidden text-center"><i class="fas fa-spinner fa-spin"></i> Chargement…</div>
+
+</section>

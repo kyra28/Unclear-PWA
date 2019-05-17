@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Running with Contentify CMS -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Contentify">
+  <meta name="csrf-token" content="hMW4e3hWmjuZnd4StLTLkFg44iaf8PT1Q6xqzyqd">
+  <meta name="locale" content="fr">
+  <meta name="date-format" content="d-m-Y">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="unclear, community, esport, multigaming, association, rocket league, fortnite, LES2019, twitch, youtube, ">
+  <meta name="description" content="">
+  <link rel="manifest" href="manifest.json">
+  <!-- for iOs -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_180.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#009688">
+  <!-- Title -->
+  <title>News - Unclear Community</title>
+  <!-- Images -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon_180.png">
+  <link rel="shortcut icon" type="picture/x-icon" href="assets/icons/favicon.png">
+  <!-- Libraries-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <base href="/">
+</head>
+<body>
+<app-root></app-root>
+</body>
+
+
+<script>
+  $(document).ready(function()
+  {
+    var navKey = 'navIndex';
+    var navIndex = sessionStorage.getItem(navKey);
+    var $nav = $('#header nav');
+
+    if (typeof navIndex === 'undefined') {
+      navIndex = 0;
+    }
+
+    if (navIndex > 0) {
+      $nav.find('a').removeClass('active');
+      $nav.find('a:eq(' + navIndex + ')').addClass('active');
+    }
+
+    $nav.find('a').click(function(event)
+    {
+      var offset = $(this).parent().parent().find('li.icon').length;
+      sessionStorage.setItem(navKey, $(this).parent().index() - offset); // -offset because of icon li
+    });
+
+    $('#header nav .icon').click(function(event)
+    {
+      $nav.toggleClass('max');
+    });
+
+    var gdprKey = 'gdprAlertAccepted';
+    var gdprAlertAccepted = localStorage.getItem(gdprKey);
+    if (! gdprAlertAccepted) {
+      var $gdprAlert = $('#gdpr-alert');
+      $gdprAlert.removeClass('hidden');
+      $gdprAlert.find('.btn').click(function(event)
+      {
+        localStorage.setItem(gdprKey, "1");
+      });
+    }
+  });
+</script>
+
+</html>
+
