@@ -1,0 +1,24 @@
+<div>
+  <a class="image text-hide" [routerLink]="['/news',this.news.id]" style="background-image: url({{this.news.image}}">
+    
+  </a>
+  
+  <h2 title="{{this.news.title}}">
+      <a [routerLink]="['/news',this.news.id]">{{this.news.title}}</a>
+  </h2>
+
+  <p>{{this.news.content}}</p>
+
+  <br/>
+  <blockquote>Written by {{this.news.admin.pseudo}}</blockquote>
+
+
+
+  <div >
+      <time>{{this.news.publishedAt | date : "MMMM d, y"}}</time>
+  </div>
+
+  <a [routerLink]="['/']">
+    <button >Back</button>
+  </a>
+</div>

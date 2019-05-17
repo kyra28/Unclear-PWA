@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div *ngIf="router.url ==='/'">
+  <app-slider></app-slider>
+</div>
+<div class="container">
+  <div id="mid-container" class="row">
+    <div id="content" class="col-md-8">
+      <app-tab></app-tab>
+    </div>
+    <app-sidebar></app-sidebar>
+  </div>
+</div>
+<app-footer></app-footer>
